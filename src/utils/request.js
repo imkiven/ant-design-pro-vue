@@ -7,7 +7,9 @@ import { ACCESS_TOKEN } from '@/store/mutation-types'
 
 // 创建 axios 实例
 const service = axios.create({
-  baseURL: '/api', // api base_url
+  // baseURL: '/api', // api base_url
+  baseURL: 'http://10.1.4.211/monitorService17',
+  // baseURL: 'http://localhost:8082/', // api base_url
   timeout: 6000 // 请求超时时间
 })
 

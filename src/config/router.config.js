@@ -257,7 +257,7 @@ export const asyncRouterMap = [
             component: () => import('@/views/account/settings/Index'),
             meta: { title: '个人设置', hideHeader: true, keepAlive: true, permission: [ 'user' ] },
             redirect: '/account/settings/base',
-            hideChildrenInMenu: true,
+            hideChildrenInMenu: true, // 强制显示 MenuItem 而不是 SubMenu
             children: [
               {
                 path: '/account/settings/base',
@@ -346,6 +346,31 @@ export const constantRouterMap = [
     ]
   },
 
+  // 单页面路由
+  {
+    path: '/single',
+    component: BlankLayout,
+    redirect: '/single/systemInfo',
+    hidden: true,
+    children: [
+      {
+        path: 'systemInfo',
+        name: 'systemInfo',
+        component: () => import(/* webpackChunkName: "user" */ '@/views/single/SystemInfo')
+      },
+      {
+        path: 'systemRisk',
+        name: 'systemRisk',
+        component: () => import(/* webpackChunkName: "user" */ '@/views/single/SystemRisk')
+      },
+      {
+        path: 'monitor01',
+        name: 'monitor01',
+        component: () => import(/* webpackChunkName: "user" */ '@/views/single/Monitor01')
+      }
+    ]
+  },
+
   {
     path: '/test',
     component: BlankLayout,
@@ -363,5 +388,4 @@ export const constantRouterMap = [
     path: '/404',
     component: () => import(/* webpackChunkName: "fail" */ '@/views/exception/404')
   }
-
 ]
