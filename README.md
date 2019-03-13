@@ -1,3 +1,5 @@
+English | [简体中文](./README.zh-CN.md)
+
 <h1 align="center">Ant Design Pro Vue</h1>
 
 <div align="center">
@@ -13,12 +15,14 @@ An out-of-box UI solution for enterprise applications as a Vue boilerplate. base
 
 </div>
 
-[English](https://github.com/sendya/ant-design-pro-vue/blob/master/README.md) | [中文文档](https://github.com/sendya/ant-design-pro-vue/blob/master/README.zh-CN.md)
+- Preview: https://preview.pro.loacg.com
+- Home Page: https://pro.loacg.com
+- Documentation: https://pro.loacg.com/docs/getting-started
+- ChangeLog: https://pro.loacg.com/docs/changelog
+- FAQ: https://pro.loacg.com/docs/faq
 
 Overview
 ----
-
-[Preview](https://pro.loacg.com/)  **Example with some list**
 
 ![dashboard + multi-tabs](https://static-2.loacg.com/open/static/github/20190224163345.jpg)
 
@@ -41,7 +45,7 @@ Overview
 - [@antv/g2](https://antv.alipay.com/zh-cn/index.html) - AntV G2
 - [Viser-vue](https://viserjs.github.io/docs.html#/viser/guide/installation)  - Antv/G2 of Vue
 
-> Note:  [Yarn](https://yarnpkg.com/) package management is recommended，the exact same version loaded with the demo site of this project (yarn.lock) 。but you can also use npm
+> Note:  [Yarn](https://yarnpkg.com/) package management is recommended, the exact same version loaded with the demo site of this project (yarn.lock) . but you can also use npm
 
 
 ### Project setup
@@ -78,7 +82,7 @@ yarn run lint
 - **IMPORTANT : About Issue feedback !! Please describe your environment, the Pro version or branch used, what happened, etc. when opening Issue**
 
 - [Vue-cli3](https://cli.vuejs.org/guide/) used by the project.
-- Close Eslint (not recommended): remove `eslintConfig`  field in `package.json` 
+- Disable Eslint (not recommended): remove `eslintConfig`  field in `package.json` 
 
 - Easy-Mock used by project，[easy-mock](https://www.easy-mock.com/)  Project API Data [DO NOT CHANGE THE INTERFACE](https://www.easy-mock.com/project/5b7bce071f130e5b7fe8cd7d)，If you want to modify, please fork [ANTD-PRO-Easy-Mock-API.zip](https://github.com/sendya/ant-design-pro-vue/files/2682711/ANTD-PRO-Easy-Mock-API.zip) and running to your server.
 
@@ -152,5 +156,3 @@ Thanks goes to these wonderful people ([emoji key](https://github.com/all-contri
 | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
 [<img src="https://avatars0.githubusercontent.com/u/22741147?v=4" width="100px;" alt="Saraka"/><br /><sub><b>Saraka</b></sub>](https://github.com/saraka-tsukai)<br />[💻](https://github.com/sendya/ant-design-pro-vue/commits?author=saraka-tsukai "Code") [🔧](https://github.com/sendya/ant-design-pro-vue) | [<img src="https://avatars0.githubusercontent.com/u/1051992?v=4" width="100px;" alt="since2006"/><br /><sub><b>since2006</b></sub>](https://github.com/since2006)<br />[💻](https://github.com/sendya/ant-design-pro-vue/commits?author=since2006 "Code") | [<img src="https://avatars0.githubusercontent.com/u/26241263?v=4" width="100px;" alt="yihuishou"/><br /><sub><b>挥手的骑士</b></sub>](https://github.com/yihuishou)<br />[💻](https://github.com/sendya/ant-design-pro-vue/commits?author=yihuishou "Code") |
 <!-- ALL-CONTRIBUTORS-LIST:END -->
-
-This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
