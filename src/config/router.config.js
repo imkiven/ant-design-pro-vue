@@ -356,17 +356,36 @@ export const constantRouterMap = [
       {
         path: 'systemInfo',
         name: 'systemInfo',
-        component: () => import(/* webpackChunkName: "user" */ '@/views/single/SystemInfo')
+        component: () => import(/* webpackChunkName: "single" */ '@/views/single/SystemInfo')
       },
       {
         path: 'systemRisk',
         name: 'systemRisk',
-        component: () => import(/* webpackChunkName: "user" */ '@/views/single/SystemRisk')
+        component: () => import(/* webpackChunkName: "single" */ '@/views/single/SystemRisk')
       },
       {
         path: 'monitor01',
         name: 'monitor01',
-        component: () => import(/* webpackChunkName: "user" */ '@/views/single/Monitor01')
+        component: () => import(/* webpackChunkName: "single" */ '@/views/single/Monitor01')
+      }
+    ]
+  },
+  // 监控路由
+  {
+    path: '/monitor',
+    component: BlankLayout,
+    redirect: '/monitor/middleOffice',
+    hidden: true,
+    children: [
+      {
+        path: 'middleOffice',
+        name: 'middleOffice',
+        component: () => import(/* webpackChunkName: "monitor" */ '@/views/monitor/MiddleOffice')
+      },
+      {
+        path: 'internet',
+        name: 'internet',
+        component: () => import(/* webpackChunkName: "monitor" */ '@/views/monitor/Internet')
       }
     ]
   },

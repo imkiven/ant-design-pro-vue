@@ -4,12 +4,14 @@ import App from './App.vue'
 import router from './router'
 import store from './store/'
 import { VueAxios } from '@/utils/request' // axios 不建议引入到 Vue 原型链上
-
+// 引入echarts
+import echarts from 'echarts'
 import './core/use'
 import bootstrap from './core/bootstrap'
 import '@/permission' // permission control
 import '@/utils/filter' // global filter
 
+Vue.prototype.$echarts = echarts
 Vue.config.productionTip = false
 
 Vue.use(VueAxios, router)
