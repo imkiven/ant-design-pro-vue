@@ -229,7 +229,7 @@ body {
           }
         }
         .ant-menu.ant-menu-horizontal {
-          flex: 1 1;
+          flex: 0 1 auto;
           white-space: normal;
         }
       }
@@ -250,16 +250,19 @@ body {
       height: 64px;
 
       .ant-menu.ant-menu-horizontal {
+        max-width: 835px;
+        flex: 0 1 835px;
         border: none;
         height: 64px;
         line-height: 64px;
       }
 
       .header-index-left {
-        flex: 1 1;
+        flex: 0 1 1000px;
         display: flex;
 
         .logo.top-nav-header {
+          flex: 0 0 165px;
           width: 165px;
           height: 64px;
           position: relative;
@@ -286,7 +289,7 @@ body {
       }
 
       .header-index-right {
-        flex: 0 0 auto;
+        flex: 1 0 auto;
         height: 64px;
         overflow: hidden;
       }
@@ -354,7 +357,8 @@ body {
   z-index: 10;
   height: auto;
 
-  .ant-layout-sider-children {
+  .ant-layout-sider-children  {
+    padding-top: 64px;
     overflow-y: hidden;
     &:hover{
       overflow-y: auto;
@@ -367,14 +371,18 @@ body {
   }
 
   .logo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
     height: 64px;
-    position: relative;
     line-height: 64px;
     padding-left: 24px;
     -webkit-transition: all .3s;
     transition: all .3s;
     background: #002140;
     overflow: hidden;
+    z-index: 9;
 
     img, svg, h1 {
       display: inline-block;
