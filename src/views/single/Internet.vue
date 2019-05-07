@@ -5,7 +5,7 @@
         <section class="ht-left-section">
           <header class="ht-header">ECC监控系统-互联网</header>
           <a-card title="e海通财手机端">
-            <a href="#" @click="() => setEhtsecModal(true,'e海通财手机端')" slot="extra">各站点情况</a>
+            <a href="#" @click="() => setEhtsecModal(true,'ehtsecApp')" slot="extra">各站点情况</a>
             <a-row>
               <a-col :sm="24" :md="24" :lg="{ span: 8}">
                 <p class="ht-content">
@@ -19,24 +19,25 @@
               </a-col>
               <a-col :sm="{ span: 12}" :md="{ span: 12}" :lg="{ span:8}">
                 <div class="ht-content" style>
-                  交易量
+                  交易笔数
                   <strong class="ht-number">{{ehtsecState.trans_count}}</strong>
-                  <div style="margin-left:60px;">
+                  <p></p>
+                  <!-- <div style="margin-left:60px;">
                     <small class="ht-percent">11.38%</small>
                     <small class="ht-percent-tips">
                       <a-icon type="rise" class="ht-percent-icon-up"/>同比昨日
                     </small>
-                  </div>
+                  </div>-->
                 </div>
               </a-col>
               <a-col :sm="{ span: 12}" :md="{ span: 12}" :lg="{ span: 8}">
                 <div class="ht-content">
                   <a-row>
-                    <a-col :sm="{ span: 24}" :md="{ span: 24}" :lg="{ span: 14}">
+                    <a-col :sm="{ span: 24}" :md="{ span: 24}" :lg="{ span: 16}">
                       时 延
-                      <strong class="ht-number">{{ehtsecState.duration}}ms</strong>
+                      <strong class="ht-number">{{Math.round(ehtsecState.duration)}}ms</strong>
                     </a-col>
-                    <a-col :sm="{ span: 24}" :md="{ span: 24}" :lg="{ span: 10}">
+                    <a-col :sm="{ span: 24}" :md="{ span: 24}" :lg="{ span: 8}">
                       <a-progress
                         type="line"
                         :percent="75"
@@ -49,11 +50,11 @@
                 </div>
                 <div class="ht-content" style="margin-top: 20px">
                   <a-row>
-                    <a-col :sm="{ span: 24}" :md="{ span: 24}" :lg="{ span: 14}">
+                    <a-col :sm="{ span: 24}" :md="{ span: 24}" :lg="{ span: 16}">
                       成功率
                       <strong class="ht-number">{{ehtsecState.totalSuccessRate * 100}}%</strong>
                     </a-col>
-                    <a-col :sm="{ span: 24}" :md="{ span: 24}" :lg="{ span: 10}">
+                    <a-col :sm="{ span: 24}" :md="{ span: 24}" :lg="{ span: 8}">
                       <a-progress
                         type="line"
                         :percent="ehtsecState.totalSuccessRate*100"
@@ -77,7 +78,7 @@
             </a-row>
           </a-card>
           <a-card title="e海通财PC端">
-            <a href="#" @click="() => setEhtsecModal(true,'e海通财PC端')" slot="extra">各站点情况</a>
+            <a href="#" @click="() => setEhtsecModal(true,'ehtsecPC')" slot="extra">各站点情况</a>
             <a-row>
               <a-col :sm="24" :md="24" :lg="{ span: 8}">
                 <p class="ht-content">
@@ -91,24 +92,27 @@
               </a-col>
               <a-col :sm="{ span: 12}" :md="{ span: 12}" :lg="{ span:8}">
                 <div class="ht-content" style>
-                  交易量
-                  <strong class="ht-number">{{ehtsecPCState.trans_count}}</strong>
-                  <div style="margin-left:60px;">
+                  交易笔数
+                  <!-- <strong class="ht-number">{{ehtsecPCState.trans_count}}</strong> -->
+                  <strong class="ht-number">---</strong>
+                  <p></p>
+                  <!-- <div style="margin-left:60px;">
                     <small class="ht-percent">11.38%</small>
                     <small class="ht-percent-tips">
                       <a-icon type="rise" class="ht-percent-icon-up"/>同比昨日
                     </small>
-                  </div>
+                  </div>-->
                 </div>
               </a-col>
               <a-col :sm="{ span: 12}" :md="{ span: 12}" :lg="{ span: 8}">
                 <div class="ht-content">
                   <a-row>
-                    <a-col :sm="{ span: 24}" :md="{ span: 24}" :lg="{ span: 14}">
+                    <a-col :sm="{ span: 24}" :md="{ span: 24}" :lg="{ span: 16}">
                       时 延
-                      <strong class="ht-number">{{ehtsecPCState.duration}}ms</strong>
+                      <!-- <strong class="ht-number">{{Math.round(ehtsecPCState.duration)}}ms</strong> -->
+                      <strong class="ht-number">--ms</strong>
                     </a-col>
-                    <a-col :sm="{ span: 24}" :md="{ span: 24}" :lg="{ span: 10}">
+                    <a-col :sm="{ span: 24}" :md="{ span: 24}" :lg="{ span: 8}">
                       <a-progress
                         type="line"
                         :percent="75"
@@ -121,11 +125,11 @@
                 </div>
                 <div class="ht-content">
                   <a-row style="margin-top: 20px">
-                    <a-col :sm="{ span: 24}" :md="{ span: 24}" :lg="{ span: 14}">
+                    <a-col :sm="{ span: 24}" :md="{ span: 24}" :lg="{ span: 16}">
                       成功率
                       <strong class="ht-number">{{ehtsecPCState.totalSuccessRate * 100}}%</strong>
                     </a-col>
-                    <a-col :sm="{ span: 24}" :md="{ span: 24}" :lg="{ span: 10}">
+                    <a-col :sm="{ span: 24}" :md="{ span: 24}" :lg="{ span: 8}">
                       <a-progress
                         type="line"
                         :percent="ehtsecPCState.totalSuccessRate * 100"
@@ -153,34 +157,35 @@
       <a-col :sm="24" :md="24" :lg="13">
         <section class="ht-right-section">
           <a-card title="e海方舟">
-            <a href="#" @click="() => setEhtsecModal(true,'e海方舟')" slot="extra">各站点情况</a>
+            <a href="#" @click="() => setEhtsecModal(true,'ehfz')" slot="extra">各站点情况</a>
             <a-row>
               <a-col :sm="24" :md="24" :lg="6">
                 <p class="ht-content">
                   用户数
-                  <strong class="ht-number">564,900</strong>
+                  <strong class="ht-number">--</strong>
                 </p>
                 <p class="ht-content">
                   等待数
-                  <strong class="ht-number">564,900</strong>
+                  <strong class="ht-number">--</strong>
                 </p>
                 <div class="ht-content">
-                  交易量
-                  <strong class="ht-number">564,900</strong>
-                  <div style="margin-left:60px;">
+                  交易笔数
+                  <strong class="ht-number">--</strong>
+                  <p></p>
+                  <!-- <div style="margin-left:60px;">
                     <small class="ht-percent">11.38%</small>
                     <small class="ht-percent-tips">
                       <a-icon type="rise" class="ht-percent-icon-up"/>同比昨日
                     </small>
-                  </div>
+                  </div>-->
                 </div>
                 <div class="ht-content">
                   <a-row>
-                    <a-col :sm="{ span: 24}" :md="{ span: 24}" :lg="{ span: 14}">
+                    <a-col :sm="{ span: 24}" :md="{ span: 24}" :lg="{ span: 16}">
                       时 延
-                      <strong class="ht-number">4ms</strong>
+                      <strong class="ht-number">--ms</strong>
                     </a-col>
-                    <a-col :sm="{ span: 24}" :md="{ span: 24}" :lg="{ span: 10}">
+                    <a-col :sm="{ span: 24}" :md="{ span: 24}" :lg="{ span: 8}">
                       <a-progress
                         type="line"
                         :percent="75"
@@ -198,7 +203,7 @@
             </a-row>
           </a-card>
           <a-card title="通达信">
-            <a href="#" @click="() => setEhtsecModal(true,'通达信')" slot="extra">各站点情况</a>
+            <a href="#" @click="() => setEhtsecModal(true,'tdx')" slot="extra">各站点情况</a>
             <a-row>
               <a-col :sm="24" :md="24" :lg="6">
                 <p class="ht-content">
@@ -210,22 +215,23 @@
                   <strong class="ht-number">{{tdxState.totalWait}}</strong>
                 </p>
                 <div class="ht-content">
-                  交易量
+                  交易笔数
                   <strong class="ht-number">{{tdxState.trans_count}}</strong>
-                  <div style="margin-left:60px;">
+                  <p></p>
+                  <!-- <div style="margin-left:60px;">
                     <small class="ht-percent">11.38%</small>
                     <small class="ht-percent-tips">
                       <a-icon type="rise" class="ht-percent-icon-up"/>同比昨日
                     </small>
-                  </div>
+                  </div>-->
                 </div>
                 <div class="ht-content">
                   <a-row>
-                    <a-col :sm="{ span: 24}" :md="{ span: 24}" :lg="{ span: 14}">
+                    <a-col :sm="{ span: 24}" :md="{ span: 24}" :lg="{ span: 16}">
                       时 延
-                      <strong class="ht-number">{{tdxState.duration}}ms</strong>
+                      <strong class="ht-number">{{Math.round(tdxState.duration)}}ms</strong>
                     </a-col>
-                    <a-col :sm="{ span: 24}" :md="{ span: 24}" :lg="{ span: 10}">
+                    <a-col :sm="{ span: 24}" :md="{ span: 24}" :lg="{ span: 8}">
                       <a-progress
                         type="line"
                         :percent="75"
@@ -243,7 +249,7 @@
             </a-row>
           </a-card>
           <a-card title="同花顺">
-            <a href="#" @click="() => setEhtsecModal(true,'同花顺')" slot="extra">各站点情况</a>
+            <a href="#" @click="() => setEhtsecModal(true,'ths')" slot="extra">各站点情况</a>
             <a-row>
               <a-col :sm="24" :md="24" :lg="6">
                 <p class="ht-content">
@@ -255,22 +261,23 @@
                   <strong class="ht-number">{{thsState.totalWait}}</strong>
                 </p>
                 <div class="ht-content">
-                  交易量
+                  交易笔数
                   <strong class="ht-number">{{thsState.trans_count}}</strong>
-                  <div style="margin-left:60px;">
+                  <p></p>
+                  <!-- <div style="margin-left:60px;">
                     <small class="ht-percent">11.38%</small>
                     <small class="ht-percent-tips">
                       <a-icon type="rise" class="ht-percent-icon-up"/>同比昨日
                     </small>
-                  </div>
+                  </div>-->
                 </div>
                 <div class="ht-content">
                   <a-row>
-                    <a-col :sm="{ span: 24}" :md="{ span: 24}" :lg="{ span: 14}">
+                    <a-col :sm="{ span: 24}" :md="{ span: 24}" :lg="{ span: 16}">
                       时 延
-                      <strong class="ht-number">{{thsState.duration}}ms</strong>
+                      <strong class="ht-number">{{Math.round(thsState.duration)}}ms</strong>
                     </a-col>
-                    <a-col :sm="{ span: 24}" :md="{ span: 24}" :lg="{ span: 10}">
+                    <a-col :sm="{ span: 24}" :md="{ span: 24}" :lg="{ span: 8}">
                       <a-progress
                         type="line"
                         :percent="75"
@@ -300,19 +307,20 @@
     >
       <a-row>
         <a-col :sm="24" :md="8" :lg="{ span: 8}">
-          <a-input-search style="margin-bottom: 8px" placeholder="Search" @change="onChange"/>
+          <a-input-search style="margin-bottom: 8px" placeholder="请输入IP地址" @change="onChange"/>
           <div class="htsec-infinite-container">
             <a-list size="large" bordered :dataSource="data">
               <div slot="header">
                 <div class="list-item-wrap">
-                  <div>IP</div>
-                  <div>机房位置</div>
+                  <div>IP 地址</div>
+                  <!-- <div>机房位置</div> -->
                 </div>
               </div>
-              <a-list-item slot="renderItem" slot-scope="item, index">
+              <a-list-item slot="renderItem" slot-scope="item, index" @click="changIpItem(item,index)" :class="{'current':currentIndex===index}">
+                <a-icon type="swap-right" style='position:absolute;color:red;left:1px;padding-top:3px' v-if="currentIndex===index" />
                 <div class="list-item-wrap">
                   <div>{{item}}</div>
-                  <div>机房位置{{item.index}}</div>
+                  <!-- <div>机房位置{{item.index}}</div> -->
                 </div>
               </a-list-item>
             </a-list>
@@ -335,7 +343,38 @@
             style="height: 200px;width:100%"
           ></v-chart>
           <a-row>
-            <a-col :sm="{ span: 12}" :md="{ span: 12}" :lg="{ span: 6}">
+            <a-col :sm="12" :md="12" :lg="{ span: 8}" v-if="this.dataInfo.userCount || this.dataInfo.waitCount">
+              <p class="ht-content">
+                当前用户
+              <strong class="ht-number">{{this.dataInfo.userCount}}</strong>
+              </p>
+              <p class="ht-content">
+                当前等待
+                <strong class="ht-number">{{this.dataInfo.waitCount}}</strong>
+              </p>
+            </a-col>
+            <a-col :sm="12" :md="12" :lg="{ span: 8}" v-if="this.dataInfo.user_cnt || this.dataInfo.current_inqueue">
+              <p class="ht-content">
+                当前用户
+              <strong class="ht-number">{{this.dataInfo.user_cnt}}</strong>
+              </p>
+              <p class="ht-content">
+                当前等待
+                <strong class="ht-number">{{this.dataInfo.current_inqueue}}</strong>
+              </p>
+            </a-col>
+            <a-col :sm="12" :md="12" :lg="{ span: 8}" v-if="this.dataInfo.max_inqueue || this.dataInfo.total_enqueue">
+              <p class="ht-content">
+                最大等待
+              <strong class="ht-number">{{this.dataInfo.max_inqueue}}</strong>
+              </p>
+              <p class="ht-content">
+                总 请 求
+                <strong class="ht-number">{{this.dataInfo.total_enqueue}}</strong>
+              </p>
+            </a-col>
+
+            <!-- <a-col :sm="{ span: 12}" :md="{ span: 12}" :lg="{ span: 6}">
               <v-chart
                 id="succRateCharts"
                 :options="succRateOptions"
@@ -345,27 +384,27 @@
             <a-col :sm="12" :md="12" :lg="{ span: 8}" style="margin-top:25px">
               <p class="ht-content">
                 成功数
-                <strong class="ht-number">564,900</strong>
+                <strong class="ht-number">--</strong>
               </p>
               <p class="ht-content">
                 失败数
-                <strong class="ht-number">564,900</strong>
+                <strong class="ht-number">--</strong>
               </p>
             </a-col>
             <a-col :sm="24" :md="24" :lg="{ span: 10}">
               <p class="ht-content">
                 当前处理总数
-                <strong class="ht-number">564,900</strong>
+                <strong class="ht-number">--</strong>
               </p>
               <p class="ht-content">
                 当前用户
-                <strong class="ht-number">564,900</strong>
+                <strong class="ht-number">--</strong>
               </p>
               <p class="ht-content">
                 当前等待
-                <strong class="ht-number">564,900</strong>
+                <strong class="ht-number">--</strong>
               </p>
-            </a-col>
+            </a-col>-->
           </a-row>
         </a-col>
       </a-row>
@@ -387,55 +426,59 @@ export default {
     return {
       modalTitle: '',
       modalVisible: false,
-      loading: false,
-      busy: false,
-      data: [
-        '192.168.0.1 ',
-        '192.168.0.1 .',
-        '192.168.0.1 .',
-        '192.168.0.1 .',
-        '192.168.0.1 .',
-        '192.168.0.1 .',
-        '192.168.0.1 .',
-        '192.168.0.1 .',
-        '192.168.0.1 .',
-        '192.168.0.1 .',
-        '192.168.0.1 .',
-        '192.168.0.1 .',
-        '192.168.0.1 .',
-        '192.168.0.1 .',
-        '192.168.0.1 .',
-        '192.168.0.1 .',
-        '192.168.0.1 .',
-        '192.168.0.1 .',
-        '192.168.0.1 .',
-        '192.168.0.1 .',
-        '192.168.0.1 .',
-        '192.168.0.1 .',
-        '192.168.0.1 .',
-        '192.168.0.1 .',
-        '192.168.0.1 .',
-        '192.168.0.1 .',
-        '192.168.0.1 .',
-        '192.168.0.1 .',
-        '192.168.0.1 .',
-        '192.168.0.1 .',
-        '192.168.0.1 .',
-        '192.168.0.1 .',
-        '192.168.0.1 .',
-        '192.168.0.1 .',
-        '192.168.0.1 .',
-        '192.168.0.1 .',
-        '192.168.0.1 .',
-        '192.168.0.1 .',
-        '192.168.0.1.',
-        '192.168.0.1.',
-        '192.168.0.1.'
-      ]
+      data: [],
+      dataInfo: {},
+      dataList: [],
+      currentIndex: 0,
+      type: ''
     }
   },
   computed: {
     ...mapState({
+      // common
+      cpuPerformanceX: state => {
+        if(state.single.kcmimPerformance) {
+          return state.single.kcmimPerformance[0].x
+        } else {
+          return ""
+        }
+      },
+      cpuPerformanceY: state => {
+        if(state.single.kcmimPerformance) {
+          return state.single.kcmimPerformance[0].y
+        } else {
+          return ""
+        }
+      },
+      memPerformanceX: state => {
+        if(state.single.kcmimPerformance) {
+          return state.single.kcmimPerformance[1].x
+        } else {
+          return ""
+        }
+      },
+      memPerformanceY: state => {
+        if(state.single.kcmimPerformance) {
+          return state.single.kcmimPerformance[1].y
+        } else {
+          return ""
+        }
+      },
+      diskPerformanceX: state => {
+        if(state.single.kcmimPerformance) {
+          return state.single.kcmimPerformance[2].x
+        } else {
+          return ""
+        }
+      },
+      diskPerformanceY: state => {
+        if(state.single.kcmimPerformance) {
+          return state.single.kcmimPerformance[2].y
+        } else {
+          return ""
+        }
+      },
+      // ehtsec
       ehtsecLineX: state => state.single.ehtsecLine.x,
       ehtsecLineY: state => state.single.ehtsecLine.y,
       ehtsecState: state => state.single.ehtsecState,
@@ -443,6 +486,8 @@ export default {
       ehtsecBaseY: state => state.single.ehtsecBase.y,
       ehtsecWaitlineX: state => state.single.ehtsecWaitline.x,
       ehtsecWaitlineY: state => state.single.ehtsecWaitline.y,
+      ehtsecServerList: state => state.single.ehtsecServerList,
+      ehtsecDetailInfo: state => state.single.ehtsecDetailInfo,
       // pc
       ehtsecPCLineX: state => state.single.ehtsecPCLine.x,
       ehtsecPCLineY: state => state.single.ehtsecPCLine.y,
@@ -451,6 +496,18 @@ export default {
       ehtsecPCBaseY: state => state.single.ehtsecPCBase.y,
       ehtsecPCWaitlineX: state => state.single.ehtsecPCWaitline.x,
       ehtsecPCWaitlineY: state => state.single.ehtsecPCWaitline.y,
+      ehtsecPCServerList: state => state.single.ehtsecPCServerList,
+      ehtsecPCDetailInfo: state => state.single.ehtsecPCDetailInfo,
+      // ehfz
+      // ehfzLineX: state => state.single.ehfzLine.x,
+      // ehfzLineY: state => state.single.ehfzLine.y,
+      // ehfzState: state => state.single.ehfzState,
+      // ehfzBaseX: state => state.single.ehfzBase.x,
+      // ehfzBaseY: state => state.single.ehfzBase.y,
+      // ehfzWaitlineX: state => state.single.ehfzWaitline.x,
+      // ehfzWaitlineY: state => state.single.ehfzWaitline.y,
+      // ehfzServerList: state => state.single.ehfzServerList,
+      // ehfzDetailInfo: state => state.single.ehfzDetailInfo,
       // tdx
       tdxLineX: state => state.single.tdxLine.x,
       tdxLineY: state => state.single.tdxLine.y,
@@ -459,6 +516,8 @@ export default {
       tdxBaseY: state => state.single.tdxBase.y,
       tdxWaitlineX: state => state.single.tdxWaitline.x,
       tdxWaitlineY: state => state.single.tdxWaitline.y,
+      tdxServerList: state => state.single.tdxServerList,
+      tdxDetailInfo: state => state.single.tdxDetailInfo,
       // ths
       thsLineX: state => state.single.thsLine.x,
       thsLineY: state => state.single.thsLine.y,
@@ -466,7 +525,9 @@ export default {
       thsBaseX: state => state.single.thsBase.x,
       thsBaseY: state => state.single.thsBase.y,
       thsWaitlineX: state => state.single.thsWaitline.x,
-      thsWaitlineY: state => state.single.thsWaitline.y
+      thsWaitlineY: state => state.single.thsWaitline.y,
+      thsServerList: state => state.single.thsServerList,
+      thsDetailInfo: state => state.single.thsDetailInfo
     }),
     ehtsecAppOptions() {
       return {
@@ -624,14 +685,13 @@ export default {
             symbol: 'none',
             yAxisIndex: 0,
             itemStyle: {
-              normal: {
+               color: '#3E52FF',
                 borderColor: 'rgb(129, 32, 245)', // 拐点边框颜色
-                lineStyle: {
+            },
+            lineStyle: {
                   width: 0, // 设置线宽
                   type: 'solid' //'dotted'虚线 'solid'实线
-                }
-              }
-            },
+                },
             areaStyle: {
               color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
                 {
@@ -816,14 +876,13 @@ export default {
             symbol: 'none',
             yAxisIndex: 0,
             itemStyle: {
-              normal: {
+               color: '#D878FF',
                 borderColor: 'rgb(129, 32, 245)', // 拐点边框颜色
-                lineStyle: {
+            },
+            lineStyle: {
                   width: 0, // 设置线宽
                   type: 'solid' //'dotted'虚线 'solid'实线
-                }
-              }
-            },
+                },
             areaStyle: {
               color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
                 {
@@ -987,14 +1046,13 @@ export default {
             type: 'line',
             symbol: 'none',
             itemStyle: {
-              normal: {
+              color: '#3E52FF',
                 borderColor: 'rgb(129, 32, 245)', // 拐点边框颜色
-                lineStyle: {
+            },
+            lineStyle: {
                   width: 0, // 设置线宽
                   type: 'solid' //'dotted'虚线 'solid'实线
-                }
-              }
-            },
+                },
             areaStyle: {
               color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
                 {
@@ -1167,14 +1225,13 @@ export default {
             symbol: 'none',
             yAxisIndex: 0,
             itemStyle: {
-              normal: {
+             color: '#FF983E',
                 borderColor: 'rgb(129, 32, 245)', // 拐点边框颜色
-                lineStyle: {
+            },
+             lineStyle: {
                   width: 0, // 设置线宽
                   type: 'solid' //'dotted'虚线 'solid'实线
-                }
-              }
-            },
+                },
             areaStyle: {
               color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
                 {
@@ -1204,7 +1261,7 @@ export default {
       }
     },
     thsOptions() {
-       return {
+      return {
         title: {
           left: 'left',
           text: '在线用户基数/等待数',
@@ -1360,14 +1417,13 @@ export default {
             symbol: 'none',
             yAxisIndex: 0,
             itemStyle: {
-              normal: {
+              color: '#D878FF',
                 borderColor: 'rgb(129, 32, 245)', // 拐点边框颜色
-                lineStyle: {
+            },
+            lineStyle: {
                   width: 0, // 设置线宽
                   type: 'solid' //'dotted'虚线 'solid'实线
-                }
-              }
-            },
+                },
             areaStyle: {
               color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
                 {
@@ -1418,7 +1474,7 @@ export default {
           }
         },
         legend: {
-          data: ['昨日', '今日'],
+          // data: ['昨日', '今日'],
           bottom: '0',
           textStyle: {
             color: '#fff',
@@ -1486,7 +1542,7 @@ export default {
         xAxis: {
           type: 'category',
           boundaryGap: false,
-          data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+          data: this.cpuPerformanceX,
           axisLine: {
             lineStyle: {
               color: '#1C5F88',
@@ -1517,42 +1573,42 @@ export default {
         },
         series: [
           {
-            name: '昨日',
-            data: [720, 832, 801, 834, 790, 1430, 1220],
+            name: '今日',
+            data: this.cpuPerformanceY,
             type: 'line',
             symbol: 'none',
             smooth: true,
             itemStyle: {
               color: '#FFA772'
             }
-          },
-          {
-            name: '今日',
-            data: [820, 932, 901, 934, 1290, 1330, 1320],
-            type: 'line',
-            symbol: 'none',
-            itemStyle: {
-              normal: {
-                borderColor: 'rgb(129, 32, 245)', // 拐点边框颜色
-                lineStyle: {
-                  width: 0, // 设置线宽
-                  type: 'solid' //'dotted'虚线 'solid'实线
-                }
-              }
-            },
-            areaStyle: {
-              color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
-                {
-                  offset: 0,
-                  color: '#3E52FF'
-                },
-                {
-                  offset: 1,
-                  color: '#122245'
-                }
-              ])
-            }
           }
+          // {
+          //   name: '昨日',
+          //   data: ,
+          //   type: 'line',
+          //   symbol: 'none',
+          //   itemStyle: {
+          //     normal: {
+          //       borderColor: 'rgb(129, 32, 245)', // 拐点边框颜色
+          //       lineStyle: {
+          //         width: 0, // 设置线宽
+          //         type: 'solid' //'dotted'虚线 'solid'实线
+          //       }
+          //     }
+          //   },
+          //   areaStyle: {
+          //     color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+          //       {
+          //         offset: 0,
+          //         color: '#3E52FF'
+          //       },
+          //       {
+          //         offset: 1,
+          //         color: '#122245'
+          //       }
+          //     ])
+          //   }
+          // }
         ]
       }
     },
@@ -1578,7 +1634,7 @@ export default {
           }
         },
         legend: {
-          data: ['昨日', '今日'],
+          // data: ['昨日', '今日'],
           bottom: '0',
           textStyle: {
             color: '#fff',
@@ -1646,7 +1702,7 @@ export default {
         xAxis: {
           type: 'category',
           boundaryGap: false,
-          data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+          data: this.memPerformanceX,
           axisLine: {
             lineStyle: {
               color: '#1C5F88',
@@ -1677,42 +1733,43 @@ export default {
         },
         series: [
           {
-            name: '昨日',
-            data: [720, 832, 801, 834, 790, 1430, 1220],
+            name: '今日',
+            data: this.memPerformanceY,
+
             type: 'line',
             symbol: 'none',
             smooth: true,
             itemStyle: {
               color: '#FFA772'
             }
-          },
-          {
-            name: '今日',
-            data: [820, 932, 901, 934, 1290, 1330, 1320],
-            type: 'line',
-            symbol: 'none',
-            itemStyle: {
-              normal: {
-                borderColor: 'rgb(129, 32, 245)', // 拐点边框颜色
-                lineStyle: {
-                  width: 0, // 设置线宽
-                  type: 'solid' //'dotted'虚线 'solid'实线
-                }
-              }
-            },
-            areaStyle: {
-              color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
-                {
-                  offset: 0,
-                  color: '#3E52FF'
-                },
-                {
-                  offset: 1,
-                  color: '#122245'
-                }
-              ])
-            }
           }
+          // {
+          //   name: '昨日',
+          //   data: [720, 832, 801, 834, 790, 1430, 1220],
+          //   type: 'line',
+          //   symbol: 'none',
+          //   itemStyle: {
+          //     normal: {
+          //       borderColor: 'rgb(129, 32, 245)', // 拐点边框颜色
+          //       lineStyle: {
+          //         width: 0, // 设置线宽
+          //         type: 'solid' //'dotted'虚线 'solid'实线
+          //       }
+          //     }
+          //   },
+          //   areaStyle: {
+          //     color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+          //       {
+          //         offset: 0,
+          //         color: '#3E52FF'
+          //       },
+          //       {
+          //         offset: 1,
+          //         color: '#122245'
+          //       }
+          //     ])
+          //   }
+          // }
         ]
       }
     },
@@ -1738,7 +1795,7 @@ export default {
           }
         },
         legend: {
-          data: ['昨日', '今日'],
+          // data: ['昨日', '今日'],
           bottom: '0',
           textStyle: {
             color: '#fff',
@@ -1806,7 +1863,7 @@ export default {
         xAxis: {
           type: 'category',
           boundaryGap: false,
-          data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+          data: this.diskPerformanceX,
           axisLine: {
             lineStyle: {
               color: '#1C5F88',
@@ -1837,42 +1894,42 @@ export default {
         },
         series: [
           {
-            name: '昨日',
-            data: [720, 832, 801, 834, 790, 1430, 1220],
+            name: '今日',
+            data: this.diskPerformanceY,
             type: 'line',
             symbol: 'none',
             smooth: true,
             itemStyle: {
               color: '#FFA772'
             }
-          },
-          {
-            name: '今日',
-            data: [820, 932, 901, 934, 1290, 1330, 1320],
-            type: 'line',
-            symbol: 'none',
-            itemStyle: {
-              normal: {
-                borderColor: 'rgb(129, 32, 245)', // 拐点边框颜色
-                lineStyle: {
-                  width: 0, // 设置线宽
-                  type: 'solid' //'dotted'虚线 'solid'实线
-                }
-              }
-            },
-            areaStyle: {
-              color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
-                {
-                  offset: 0,
-                  color: '#3E52FF'
-                },
-                {
-                  offset: 1,
-                  color: '#122245'
-                }
-              ])
-            }
           }
+          // {
+          //   name: '昨日',
+          //   data: [720, 832, 801, 834, 790, 1430, 1220],
+          //   type: 'line',
+          //   symbol: 'none',
+          //   itemStyle: {
+          //     normal: {
+          //       borderColor: 'rgb(129, 32, 245)', // 拐点边框颜色
+          //       lineStyle: {
+          //         width: 0, // 设置线宽
+          //         type: 'solid' //'dotted'虚线 'solid'实线
+          //       }
+          //     }
+          //   },
+          //   areaStyle: {
+          //     color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+          //       {
+          //         offset: 0,
+          //         color: '#3E52FF'
+          //       },
+          //       {
+          //         offset: 1,
+          //         color: '#122245'
+          //       }
+          //     ])
+          //   }
+          // }
         ]
       }
     },
@@ -1942,86 +1999,211 @@ export default {
     this.doEhtsecState()
     this.doEhtsecBase()
     this.doEhtsecWaitline()
+    // this.doEhtsecServerList()
+    // this.doEhtsecDetailInfo()
     // pc
     this.doEhtsecPCLine()
     this.doEhtsecPCState()
     this.doEhtsecPCBase()
     this.doEhtsecPCWaitline()
+    // this.doEhtsecPCServerList()
+    // this.doEhtsecPCDetailInfo()
+    // ehfz
+    // this.doEhfzLine()
+    // this.doEhfzState()
+    // this.doEhfzBase()
+    // this.doEhfzWaitline()
+    // this.doEhfzServerList()
+    // this.doEhfzDetailInfo()
     // tdx
     this.doTdxLine()
     this.doTdxState()
     this.doTdxBase()
     this.doTdxWaitline()
-        // ths
+    // this.doTdxServerList()
+    // this.doTdxDetailInfo()
+    // ths
     this.doThsLine()
     this.doThsState()
     this.doThsBase()
     this.doThsWaitline()
+    // this.doThsServerList()
+    // this.doThsDetailInfo()
     this.intervalid = setInterval(() => {
       //e海通财App端
       this.doEhtsecLine()
       this.doEhtsecState()
       this.doEhtsecBase()
       this.doEhtsecWaitline()
+      // this.doEhtsecServerList()
+      // this.doEhtsecDetailInfo()
       // pc
       this.doEhtsecPCLine()
       this.doEhtsecPCState()
       this.doEhtsecPCBase()
       this.doEhtsecPCWaitline()
+      // this.doEhtsecPCServerList()
+      // this.doEhtsecPCDetailInfo()
+      // ehfz
+      // this.doEhfzLine()
+      // this.doEhfzState()
+      // this.doEhfzBase()
+      // this.doEhfzWaitline()
+      // this.doEhfzServerList()
+      // this.doEhfzDetailInfo()
       // tdx
       this.doTdxLine()
       this.doTdxState()
       this.doTdxBase()
       this.doTdxWaitline()
-         // ths
-    this.doThsLine()
-    this.doThsState()
-    this.doThsBase()
-    this.doThsWaitline()
-    }, 10000)
+      // this.doTdxServerList()
+      // this.doTdxDetailInfo()
+      // ths
+      this.doThsLine()
+      this.doThsState()
+      this.doThsBase()
+      this.doThsWaitline()
+      // this.doThsServerList()
+      // this.doThsDetailInfo()
+    }, 30000)
   },
-  mounted() {
-
-  },
+  mounted() {},
   methods: {
     ...mapActions([
+      'doKcmimPerformance',
       'doEhtsecState',
       'doEhtsecLine',
       'doEhtsecBase',
       'doEhtsecWaitline',
+      'doEhtsecServerList',
+      'doEhtsecDetailInfo',
       'doEhtsecPCState',
       'doEhtsecPCLine',
       'doEhtsecPCBase',
       'doEhtsecPCWaitline',
+      'doEhtsecPCServerList',
+      'doEhtsecPCDetailInfo',
+      // 'doEhfzState',
+      // 'doEhfzLine',
+      // 'doEhfzBase',
+      // 'doEhfzWaitline',
+      // 'doEhfzServerList',
+      // 'doEhfzDetailInfo',
       'doTdxState',
       'doTdxLine',
       'doTdxBase',
       'doTdxWaitline',
+      'doTdxServerList',
+      'doTdxDetailInfo',
       'doThsState',
       'doThsLine',
       'doThsBase',
-      'doThsWaitline'
+      'doThsWaitline',
+      'doThsServerList',
+      'doThsDetailInfo'
     ]),
+    changIpItem(ip,index) {
+      this.currentIndex = index
+      let type = this.type
+      this.doKcmimPerformance({ ip, type: 'all' })
+      if (type == 'ehtsecApp') {
+        this.doEhtsecDetailInfo({ ip })
+          .then(response => (this.dataInfo = response.data))
+          .catch(error => {
+            console.log(error)
+          })
+      } else if (type == 'ehtsecPC') {
+        this.doEhtsecPCDetailInfo({ ip })
+          .then(response => (this.dataInfo = response.data))
+          .catch(error => {
+            console.log(error)
+          })
+      } else if (type == 'ehfz') {
+        this.doEhfzDetailInfo({ ip })
+          .then(response => (this.dataInfo = response.data))
+          .catch(error => {
+            console.log(error)
+          })
+      } else if (type == 'tdx') {
+        this.doTdxDetailInfo({ ip })
+          .then(response => (this.dataInfo = response.data))
+          .catch(error => {
+            console.log(error)
+          })
+      } else if (type == 'ths') {
+        this.doThsDetailInfo({ ip })
+          .then(response => (this.dataInfo = response.data))
+          .catch(error => {
+            console.log(error)
+          })
+      }
+    },
     setEhtsecModal(modalVisible, type) {
+      this.type = type
       this.modalVisible = modalVisible
-      this.modalTitle = '各站点情况(' + type + ')'
-      // this.drawDeatilLine()
+      this.dataList = []
+      this.dataInfo = {}
+      this.currentIndex = 0
+      if (type == 'ehtsecApp') {
+        this.modalTitle = '各站点情况(e海通财手机端)'
+        this.doEhtsecServerList().then(response => {
+          this.dataList = this.data = response.data
+          this.doKcmimPerformance({ ip: this.data[0], type: 'all' })
+          this.doEhtsecDetailInfo({ ip: this.data[0] })
+            .then(response => (this.dataInfo = response.data))
+            .catch(error => {
+              console.log(error)
+            })
+        })
+      } else if (type == 'ehtsecPC') {
+        this.modalTitle = '各站点情况(e海通财PC端)'
+        this.doEhtsecPCServerList().then(response => {
+          this.dataList = this.data = response.data
+          this.doKcmimPerformance({ ip: this.data[0], type: 'all' })
+          this.doEhtsecPCDetailInfo({ ip: this.data[0] })
+            .then(response => (this.dataInfo = response.data))
+            .catch(error => {
+              console.log(error)
+            })
+        })
+      } else if (type == 'ehfz') {
+        this.modalTitle = '各站点情况(e海方舟)'
+        this.doEhfzServerList().then(response => {
+          this.dataList = this.data = response.data
+          this.doKcmimPerformance({ ip: this.data[0], type: 'all' })
+          this.doEhfzDetailInfo({ ip: this.data[0] })
+            .then(response => (this.dataInfo = response.data))
+            .catch(error => {
+              console.log(error)
+            })
+        })
+      } else if (type == 'tdx') {
+        this.modalTitle = '各站点情况(通达信)'
+        this.doTdxServerList().then(response => {
+          this.dataList = this.data = response.data
+          this.doKcmimPerformance({ ip: this.data[0], type: 'all' })
+          this.doTdxDetailInfo({ ip: this.data[0] })
+            .then(response => (this.dataInfo = response.data))
+            .catch(error => {
+              console.log(error)
+            })
+        })
+      } else if (type == 'ths') {
+        this.modalTitle = '各站点情况(同花顺)'
+        this.doThsServerList().then(response => {
+          this.dataList = this.data = response.data
+          this.doKcmimPerformance({ ip: this.data[0], type: 'all' })
+          this.doThsDetailInfo({ ip: this.data[0] })
+            .then(response => (this.dataInfo = response.data))
+            .catch(error => {
+              console.log(error)
+            })
+        })
+      }
     },
     onChange(e) {
       const value = e.target.value
-      const expandedKeys = dataList
-        .map(item => {
-          if (item.key.indexOf(value) > -1) {
-            return getParentKey(item.key, gData)
-          }
-          return null
-        })
-        .filter((item, i, self) => item && self.indexOf(item) === i)
-      Object.assign(this, {
-        expandedKeys,
-        searchValue: value,
-        autoExpandParent: true
-      })
+      this.data = this.dataList.filter((item, i, self) => item.indexOf(value) !== -1)
     }
   },
   beforeDestroy() {
@@ -2029,6 +2211,5 @@ export default {
   }
 }
 </script>
-
 <style scoped>
 </style>

@@ -191,15 +191,8 @@ export default {
       })
     }, 30000)
   },
-  mounted() {},
   methods: {
     ...mapActions(['doWgqspxLine'])
-  },
-  watch: {
-    wgqspxLine: function(a, b) {
-      console.log('A' + a)
-      console.log('B' + b)
-    }
   },
   beforeDestroy() {
     clearInterval(this.intervalid)

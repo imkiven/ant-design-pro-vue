@@ -13,7 +13,7 @@ import {
 const service = axios.create({
   // baseURL: '/api', // api base_url
   baseURL: 'http://10.1.4.211',
-  // baseURL: 'http://localhost:10101', // api base_url
+  // baseURL: 'http://localhost:8090', // api base_url
   timeout: 6000 // 请求超时时间
 })
 
